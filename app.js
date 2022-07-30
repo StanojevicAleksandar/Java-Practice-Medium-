@@ -158,3 +158,77 @@ function convertToBoolean(arr) {
 }
 
 console.log(convertToBoolean([500, 0, "David", "", []]));
+
+/* Advanced QUESTIONS */
+
+/* QUESTION 1 */
+
+function showRating(rating) {
+    let ratings = "";
+    for (let i = 0; i < Math.floor(rating); ++i) {
+        ratings += "*"
+        if (i !== Math.floor(rating) - 1) {
+            ratings += " "
+        }
+    }
+
+    if (!Number.isInteger(rating)) {
+        ratings += " .";
+    }
+
+    return ratings;
+
+}
+console.log(showRating(4.5));
+
+/* QUESTION 2 */
+
+function sortLowToHigh(numbers) {
+    return numbers.sort((a, b) => a - b);
+
+
+}
+
+console.log(sortLowToHigh([1, 5, 0, 10, 4]))
+
+/* QUESTION 3 */
+
+function sortHighToLow(numbers) {
+    return numbers.sort((a, b) => b.price - alert.price);
+}
+
+console.log(sortHighToLow([
+    { id: 1, price: 50 },
+    { id: 2, price: 0 },
+    { id: 3, price: 500 }
+])
+);
+
+/* QUESTION 5 */
+
+ async function postsByUser(userId) {
+    const promise = await fetch("https://jsonplaceholder.typicode.com/incompleteTasks");
+
+    const result = await promise.json()
+
+    const posts = result.filter(element => element.userId === userId)
+
+    console.log(posts)
+}
+
+postsByUser(4);
+
+/* QUESTION 6 */
+
+async function firstSixIncomplete() {
+
+    const promise = await fetch("https://jsonplaceholder.typicode.com/todos");
+
+    const result = await promise.json();
+
+    const incompleteTasks = result.filter(elem => !elem.completed).slice(0, 6);
+
+    console.log(incompleteTasks);
+}
+
+firstSixIncomplete(6);
